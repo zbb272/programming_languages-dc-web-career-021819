@@ -10,11 +10,14 @@ def reformat_languages(languages)
     end 
   end 
   languages.each do | style, langs |
-    new_hash.each do | lang, attributes |
-      attributes[:style] << style
+    langs.each do | lang, attribute |
+      new_hash.each do | new_lang, attributes |
+        if lang == new_lang
+          attributes[:style] << style
+        end 
+      end 
     end 
   end 
   new_hash
-  puts new_hash
 end
 
